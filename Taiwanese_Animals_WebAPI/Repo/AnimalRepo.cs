@@ -15,12 +15,14 @@ namespace Taiwanese_Animals_WebAPI.Repo
 
         public List<Animal> GetAll()
         {
-            throw new NotImplementedException();
+            return _animals;
         }
 
         public Animal GetById(int id)
         {
-            throw new NotImplementedException();
+            // Find method is good for searching by ID; If it doesn't find it, it returns null
+            Animal animal = _animals.Find(x => x.Id == id);
+            return animal;
         }
 
         private List<Animal> PopulateAnimalData()
