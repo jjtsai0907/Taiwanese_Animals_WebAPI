@@ -8,7 +8,11 @@ namespace Taiwanese_Animals_WebAPI.Repo
 
         Animal GetById(int id);
 
-        
+        Animal CreateAnimal(Animal animal);
+
+        Animal UpdateAnimal(Animal animal);
+
+        void DeleteAnimal(int id);
 
     }
 }

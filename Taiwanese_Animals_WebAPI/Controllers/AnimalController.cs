@@ -31,7 +31,26 @@ namespace Taiwanese_Animals_WebAPI.Controllers
             return _repo.GetById(id);
         }
 
+        [HttpPost("")]
+        public Animal CreateAnimal([FromBody]Animal animal)
+        {
+            Animal createdAnimal = _repo.CreateAnimal(animal);
+            return createdAnimal;
+        }
 
+        [HttpPut("")]
+        public Animal UpdateAnimal([FromBody] Animal animal)
+        {
+            Animal updatedAnimal = _repo.UpdateAnimal(animal);
+            return updatedAnimal;
+        }
+
+
+        [HttpDelete("{id}")]
+        public void DeleteAnimal(int id)
+        {
+             _repo.DeleteAnimal(id);
+        }
 
     }
 }
