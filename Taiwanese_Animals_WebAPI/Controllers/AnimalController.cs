@@ -18,39 +18,55 @@ namespace Taiwanese_Animals_WebAPI.Controllers
 
         // GET /api/taiwanese_animal
         [HttpGet("")]
-        public List<Animal> GetAnimals()
+        //public List<Animal> GetAnimals()
+        public IActionResult GetAnimals()
         {
             List<Animal> animals = _repo.GetAll();
-            return animals;
+            return Ok(animals);
         }
 
         // GET /api/taiwanese_animal/:id
         [HttpGet("{id}")]
-        public Animal GetAnimalByID(int id)
+        //public Animal GetAnimalByID(int id)
+        public IActionResult GetAnimalByID(int id)
         {
-            return _repo.GetById(id);
+            Animal animal = _repo.GetById(id);
+            if (animal is null)
+            {
+                return NotFound("Sorry, we cannot find an animal with id " + id);
+            }
+            return Ok(animal);
         }
 
         [HttpPost("")]
-        public Animal CreateAnimal([FromBody]Animal animal)
+        //public Animal CreateAnimal([FromBody]Animal animal)
+        public IActionResult CreateAnimal([FromBody] Animal animal)
         {
             Animal createdAnimal = _repo.CreateAnimal(animal);
-            return createdAnimal;
+            return CreatedAtAction(
+                nameof(GetAnimalByID),
+                new { id = createdAnimal.Id},
+                createdAnimal
+                ); 
+                
         }
 
         // PUT /api/taiwanese_animal/:id
         [HttpPut("{id}")]
-        public Animal UpdateAnimal([FromBody] Animal animal)
+        //public Animal UpdateAnimal([FromBody] Animal animal)
+        public IActionResult UpdateAnimal([FromBody] Animal animal)
         {
             Animal updatedAnimal = _repo.UpdateAnimal(animal);
-            return updatedAnimal;
+            return Ok(updatedAnimal);
         }
 
 
         [HttpDelete("{id}")]
-        public void DeleteAnimal(int id)
+        //public void DeleteAnimal(int id)
+        public IActionResult DeleteAnimal(int id)
         {
              _repo.DeleteAnimal(id);
+            return NoContent();
         }
 
     }
