@@ -38,7 +38,8 @@ namespace Taiwanese_Animals_WebAPI.Controllers
             return createdAnimal;
         }
 
-        [HttpPut("")]
+        // PUT /api/taiwanese_animal/:id
+        [HttpPut("{id}")]
         public Animal UpdateAnimal([FromBody] Animal animal)
         {
             Animal updatedAnimal = _repo.UpdateAnimal(animal);
