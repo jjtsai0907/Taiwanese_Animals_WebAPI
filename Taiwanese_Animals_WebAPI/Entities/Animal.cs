@@ -6,5 +6,6 @@
         public string EnglishName { get; set; }
         public string LatinName { get; set; }
         public string Type { get; set; }
+        public string ImageURL { get; set; }
     }
 }
