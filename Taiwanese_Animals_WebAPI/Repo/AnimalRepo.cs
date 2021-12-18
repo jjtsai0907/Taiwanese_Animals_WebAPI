@@ -46,6 +46,7 @@ namespace Taiwanese_Animals_WebAPI.Repo
                 existingAnimal.EnglishName = animal.EnglishName;
                 existingAnimal.LatinName = animal.LatinName;
                 existingAnimal.Type = animal.Type;
+                existingAnimal.ImageURL = animal.ImageURL;
             }
             return existingAnimal;
         }
