@@ -46,6 +46,7 @@ namespace Taiwanese_Animals_WebAPI.Repo
                 existingAnimal.EnglishName = animal.EnglishName;
                 existingAnimal.LatinName = animal.LatinName;
                 existingAnimal.Type = animal.Type;
+                existingAnimal.ImageURL = animal.ImageURL;
             }
             return existingAnimal;
         }
@@ -72,7 +73,7 @@ namespace Taiwanese_Animals_WebAPI.Repo
                     Id = 3,
                     EnglishName = "Taiwan Blue Magpie",
                     LatinName = "Urocissa caerulea",
-                    Type = "Monkey",
+                    Type = "Bird",
                     ImageURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsYtUcptT8HcBzmTW4_EDFyDTUizaqdmJymA&usqp=CAU"
                 },
                  new Animal {
